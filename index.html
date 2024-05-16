@@ -1,75 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Animation Demo</title>
-<style>
-  body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-image: url('https://raw.githubusercontent.com/Amarnathgoogle/Noxey-bio-website-/main/light-organic-leaks-effect-background-animation-vertical-looped-free-video.jpg');
-    background-size: cover;
-    font-family: Arial, sans-serif;
-  }
-  #container {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  .front-img {
-    position: absolute;
-    left: -300px; /* initial position */
-    transition: all 2s ease;
-  }
-  .front-img:nth-child(2) {
-    transform-origin: center;
-    animation: spin 2s linear forwards;
-  }
-  @keyframes spin {
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-  #text {
-    font-weight: bold;
-    font-size: 24px;
-    color: white;
-    margin-bottom: 20px;
-    position: relative;
-    z-index: 1;
-  }
-  #normal-text {
-    color: white;
-    font-size: 18px;
-    position: relative;
-    z-index: 1;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('https://raw.githubusercontent.com/Amarnathgoogle/Noxey-bio-website-/main/light-organic-leaks-effect-background-animation-vertical-looped-free-video.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden; /* Prevent overflow of rain GIF */
+        }
+
+        #gfx {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1; /* Send it behind other content */
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* Prevent interaction with the rain GIF */
+        }
+
+        #discord-logo {
+            width: 200px; /* 60% bigger than before */
+            height: 200px; /* 60% bigger than before */
+            position: absolute;
+            top: 10%; /* Adjusted to be closer to the box */
+            left: calc(50% - 1% - 2%); /* Moved 2% to the left */
+            animation: slideFromLeft 3s ease-in-out forwards, slideUp 2s ease-in-out 4s forwards, transformLogo 1s ease-in-out 3s forwards, moveLeft 1s ease-in-out 6s forwards, float 3s infinite alternate;
+            z-index: 1; /* Place above other content */
+        }
+
+        @keyframes slideFromLeft {
+            0% { left: -180px; } /* Adjusted for the larger size */
+            50% { left: calc(50% - 60px - 1% - 2%); } /* Adjusted for the left movement */
+            100% { left: calc(50% - 60px - 1% - 2%); } /* Adjusted for the left movement */
+        }
+
+        @keyframes transformLogo {
+            0% { transform: scale(1); }
+            100% { transform: scale(0.5); border-radius: 50%; }
+        }
+
+        @keyframes slideUp {
+            0% { opacity: 0; top: 100%; }
+            100% { opacity: 1; top: 10%; }
+        }
+
+        @keyframes moveLeft {
+            0% { left: calc(50% - 60px - 1% - 2%); }
+            100% { left: calc(50% - 60px - 1% - 4%); } /* Move 4% to the left */
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+
+        #play-pause-button {
+            position: absolute;
+            top: 6%; /* 3% lower than top */
+            right: 3%; /* 3% from the right */
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 1; /* Place above other content */
+            width: 70px; /* Make button 20px wide */
+            height: 70px; /* Make button 20px high */
+        }
+
+        #white-box {
+            position: absolute;
+            top: 12%; /* 9% lower than top */
+            right: 3%; /* 3% from the right */
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            display: block; /* Initially display the white box */
+            z-index: 1; /* Place above other content */
+        }
+
+        #noxx-text {
+            font-size: 30px; /* Adjust font size as needed */
+            color: white; /* Text color */
+            position: absolute;
+            bottom: 20%; /* Adjust distance from the bottom */
+            left: 10%; /* Adjust distance from the left */
+            z-index: 1; /* Place above other content */
+        }
+
+        @keyframes typing {
+            0% { width: 0; }
+            100% { width: 100%; opacity: 1; }
+        }
+    </style>
 </head>
 <body>
-<div id="container">
-  <img class="front-img" src="https://raw.githubusercontent.com/Amarnathgoogle/Noxey-bio-website-/main/Screenshot_2024_0516_132921.png" alt="Front Image 1">
-  <img class="front-img" src="https://github.com/Amarnathgoogle/Noxey-bio-website-/blob/main/Screenshot_2024_0516_132910.png" alt="Front Image 2" style="transform: translateY(-3%);">
-  <div id="text">Noxx</div>
-  <div id="normal-text">2-5-7788</div>
-</div>
+    <img id="gfx" src="https://raw.githubusercontent.com/Amarnathgoogle/Noxey-bio-website-/main/9d9a23a4d99de3a7fae1a34e5972a4b7.gif" alt="GFX">
+    <img id="discord-logo" src="https://raw.githubusercontent.com/Amarnathgoogle/Noxey-bio-website-/main/Screenshot_2024_0516_132910.png" alt="Discord Logo">
+    <button id="play-pause-button" onclick="togglePlayPause()">
+        <img id="play-pause-img" src="https://raw.githubusercontent.com/Amarnathgoogle/Main-website-/main/play-512.png" alt="Play" width="100%">
+    </button>
+    <div id="white-box">
+        <p id="white-text">Press this<br>To play music</p>
 
-<script>
-  setTimeout(() => {
-    document.querySelector('.front-img:nth-child(1)').style.left = 'calc(50% - 150px)'; // move to middle
-    document.querySelector('.front-img:nth-child(2)').style.left = 'calc(50% - 150px)'; // move to middle
-  }, 100);
+    </div>
+    <div id="noxx-text">
+        Noxx
+    </div>
 
-  setTimeout(() => {
-    document.querySelector('.front-img:nth-child(1)').style.left = 'calc(50% - 150px)'; // keep at middle
-    document.querySelector('.front-img:nth-child(2)').style.top = '-3%'; // move up
-  }, 2000);
-</script>
+    <audio id="audio" src="https://firebasestorage.googleapis.com/v0/b/bio-mp3-discoed.appspot.com/o/Deewane%20Hum%20Nahi%20Hote%20(Slow%20and%20Reverb)%20%20Lofi%20%20Hindi%20-%20(Slow%20and%20Reverb)%20songs%20%20Lyrical%20Audio.mp3?alt=media&token=1768ed23-0d3f-4f22-999f-26bac5860015"></audio>
+    <script>
+        var audio = document.getElementById('audio');
+        var playPauseButton = document.getElementById('play-pause-button');
+        var playPauseImg = document.getElementById('play-pause-img');
+
+        function togglePlayPause() {
+            if (audio.paused) {
+                audio.play();
+                playPauseImg.src = "https://raw.githubusercontent.com/Amarnathgoogle/Main-website-/main/pause-xxl.png";
+                document.getElementById('white-box').style.display = 'none'; // Hide the white box when music is played
+            } else {
+                audio.pause();
+                playPauseImg.src = "https://raw.githubusercontent.com/Amarnathgoogle/Main-website-/main/play-512.png";
+            }
+        }
+
+        // Display typing animation after a delay
+        setTimeout(function() {
+            document.getElementById('text').style.opacity = '1';
+        }, 6500); // Adjust the delay as needed
+    </script>
 </body>
 </html>
