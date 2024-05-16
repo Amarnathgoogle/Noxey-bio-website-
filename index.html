@@ -97,13 +97,23 @@
             border: 5px solid white; /* White border */
             color: white;
             position: absolute;
-            top: calc(10% + 200px); /* Below the Discord logo */
+            top: calc(100% + 10px); /* Start below the screen */
             left: 50%;
             transform: translateX(-50%);
-            opacity: 1;
-            animation: slideUpBlackBox 2s ease-in-out 4s forwards, float 3s infinite alternate;
+            opacity: 0;
+            animation: slideUpBlackBox 2s ease-in-out 4s forwards, float 3s infinite alternate, slideUpBox 3s ease-in-out 4s forwards; /* Added slideUpBox animation */
             overflow-y: scroll; /* Enable vertical scrolling */
             z-index: 0; /* Place behind the Discord logo */
+        }
+
+        @keyframes slideUpBlackBox {
+            0% { opacity: 0; top: calc(100% + 10px); }
+            100% { opacity: 1; top: 50%; }
+        }
+
+        @keyframes slideUpBox {
+            0% { top: calc(10% + 200px); }
+            100% { top: calc(10% + 100px); } /* Adjusted top position */
         }
 
         #noxxey-text {
