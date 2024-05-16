@@ -100,13 +100,14 @@
             top: 50%; /* Position below Discord logo */
             left: 50%;
             transform: translate(-50%, -50%);
-            opacity: 0;
+            opacity: 1;
             animation: slideUpBlackBox 2s ease-in-out 4s forwards, float 3s infinite alternate;
             overflow-y: scroll; /* Enable vertical scrolling */
             z-index: 0; /* Place behind the Discord logo */
         }
 
         #noxxey-text {
+            display: none;
             position: absolute;
             top: calc(10% + 200px); /* Below the Discord logo */
             left: 50%;
@@ -137,7 +138,6 @@
 <body>
     <img id="gfx" src="https://raw.githubusercontent.com/Amarnathgoogle/Main-website-/main/9d9a23a4d99de3a7fae1a34e5972a4b7.gif" alt="GFX">
     <img id="discord-logo" src="https://raw.githubusercontent.com/Amarnathgoogle/Noxey-bio-website-/main/Screenshot_2024_0516_132910.png" alt="Discord Logo">
-    <div id="noxxey-text">Noxxey</div>
     <button id="play-pause-button" onclick="togglePlayPause()">
         <img id="play-pause-img" src="https://raw.githubusercontent.com/Amarnathgoogle/Main-website-/main/play-512.png" alt="Play" width="100%">
     </button>
@@ -145,6 +145,7 @@
         <p id="white-text">Press this<br>To play music</p>
     </div>
     <div id="black-box"></div>
+    <div id="noxxey-text">ETERNAL , YASHKA</div>
     <audio id="audio" src="https://firebasestorage.googleapis.com/v0/b/bio-mp3-discoed.appspot.com/o/Deewane%20Hum%20Nahi%20Hote%20(Slow%20and%20Reverb)%20%20Lofi%20%20Hindi%20-%20(Slow%20and%20Reverb)%20songs%20%20Lyrical%20Audio.mp3?alt=media&token=1768ed23-0d3f-4f22-999f-26bac5860015"></audio>
     <script>
         var audio = document.getElementById('audio');
@@ -156,6 +157,7 @@
                 audio.play();
                 playPauseImg.src = "https://raw.githubusercontent.com/Amarnathgoogle/Main-website-/main/pause-xxl.png";
                 document.getElementById('white-box').style.display = 'none'; // Hide the white box when music is played
+                document.getElementById('noxxey-text').style.display = 'block'; // Show the Noxxey text
             } else {
                 audio.pause();
                 playPauseImg.src = "https://raw.githubusercontent.com/Amarnathgoogle/Main-website-/main/play-512.png";
