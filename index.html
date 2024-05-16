@@ -91,15 +91,15 @@
         }
 
         #black-box {
-            width: 500px; /* Set width to 500px */
-            height: 300px; /* Set height to 300px */
-            background-color: magenta; /* Magenta color */
+            width: 300px; /* Set width to 300px */
+            height: 500px; /* Set height to 500px */
+            background-color: rgba(255, 0, 255, 0.4); /* Magenta color with 40% transparency */
             border: 5px solid white; /* White border */
             color: white;
             position: absolute;
-            top: 50%; /* Position below Discord logo */
+            top: calc(10% + 200px); /* Below the Discord logo */
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translateX(-50%);
             opacity: 1;
             animation: slideUpBlackBox 2s ease-in-out 4s forwards, float 3s infinite alternate;
             overflow-y: scroll; /* Enable vertical scrolling */
